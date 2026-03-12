@@ -1,27 +1,33 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <title>
-        Sign in to your account
-    </title>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign in to your account</title>
 </head>
+
 <body>
+
+<h2>Login</h2>
+
+Username: <input type="text" id="username"><br><br>
+Password: <input type="password" id="password"><br><br>
+
+<button onclick="checkLogin()">Sign In</button>
+
 <script>
-    function yes() {
-        alert('You are now signed in!')
-    }
-    function no() {
-        alert('Incorrect username or password.')
-    }
-    username1 = 'admin1'
-    password1 = 'admin123'
-    usernameask = prompt('Enter your username: ')
-    passwordask = prompt('Enter your password: ')
+function checkLogin() {
+    let username1 = "admin1"
+    let password1 = "admin123"
+
+    let usernameask = document.getElementById("username").value
+    let passwordask = document.getElementById("password").value
+
     if (usernameask == username1 && passwordask == password1) {
-        yes()
+        alert("You are now signed in!")
     } else {
-        no()
+        alert("Incorrect username or password.")
     }
+}
 </script>
-</body>   
+
+</body>
 </html>
