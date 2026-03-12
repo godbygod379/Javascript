@@ -2,32 +2,61 @@
 <html>
 <head>
 <title>Sign in to your account</title>
+
+<style>
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial;
+}
+
+.login-box{
+    text-align:center;
+    border:1px solid black;
+    padding:30px;
+}
+</style>
+
 </head>
 
 <body>
 
+<div class="login-box">
+
 <h2>Login</h2>
 
-Username: <input type="text" id="username"><br><br>
-Password: <input type="password" id="password"><br><br>
+Username:<br>
+<input type="text" id="username"><br><br>
+
+Password:<br>
+<input type="password" id="password"><br><br>
 
 <button onclick="checkLogin()">Sign In</button>
 
+</div>
+
 <script>
-function checkLogin() {
-    let username1 = "admin1"
-    let password1 = "admin123"
 
-    let usernameask = document.getElementById("username").value
-    let passwordask = document.getElementById("password").value
+function checkLogin(){
 
-    if (usernameask == username1 && passwordask == password1) {
-        alert("You are now signed in!")
-    } else {
-        alert("Incorrect username or password.")
-    }
+let username1 = "admin1"
+let password1 = "admin123"
+
+let usernameask = document.getElementById("username").value
+let passwordask = document.getElementById("password").value
+
+if(usernameask == username1 && passwordask == password1){
+    alert("You are now signed in!")
 }
+else{
+    alert("Incorrect username or password.")
+}
+
+}
+
 </script>
 
 </body>
-</html>
+</html> 
