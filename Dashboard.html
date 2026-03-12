@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+</head>
+
+<body>
+
+<h2>Account Dashboard</h2>
+
+<button onclick="deleteAccount()">Delete Account</button>
+<br><br>
+
+<button onclick="logout()">Sign Out</button>
+
+<script>
+
+const url="YOUR_WEB_APP_URL"
+
+function logout(){
+
+localStorage.removeItem("user")
+location.href="LogIn.html"
+
+}
+
+function deleteAccount(){
+
+let user=localStorage.getItem("user")
+
+fetch(url,{
+method:"POST",
+body:JSON.stringify({
+action:"delete",
+username:user
+})
+})
+
+alert("Account deleted")
+
+localStorage.removeItem("user")
+location.href="LogIn.html"
+
+}
+
+</script>
+
+</body>
+</html>
