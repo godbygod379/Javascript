@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Create Account</title>
+    <title>Create Account</title>
 </head>
 
 <body>
 
-<h2>Create Account</h2>
+    <h2>Create Account</h2>
 
-<input id="user" placeholder="Username"><br><br>
-<input id="pass" type="password" placeholder="Password"><br><br>
+    <input id="user" placeholder="Username"><br><br>
+    <input id="pass" type="password" placeholder="Password"><br><br>
 
-<button onclick="signup()">Create Account</button>
-<br><br>
+    <button onclick="signup()">Create Account</button>
+    <br><br>
 
-<button onclick="location.href='LogIn.html'">Back to Login</button>
+    <button onclick="location.href='LogIn.html'">Back to Login</button>
 
-<script>
+    <script>
 
-const url="https://script.google.com/macros/s/AKfycbyLXeotP8PkWIJ9RjTr_C5ocmLxTTTNHt4ycIfZOrBgHKKmTzCPNtR6tqTURBpC6RE9ow/exec"
+        const url = "https://script.google.com/macros/s/AKfycbyLXeotP8PkWIJ9RjTr_C5ocmLxTTTNHt4ycIfZOrBgHKKmTzCPNtR6tqTURBpC6RE9ow/exec"
 
-function signup(){
+        function signup() {
 
-let user=document.getElementById("user").value
-let pass=document.getElementById("pass").value
+            let user = document.getElementById("user").value
+            let pass = document.getElementById("pass").value
 
-fetch(url,{
-method:"POST",
-body:JSON.stringify({
-action:"signup",
-username:user,
-password:pass
-})
-})
+            fetch(url, {
+                method: "POST",
+                body: JSON.stringify({
+                    action: "signup",
+                    username: user,
+                    password: pass
+                })
+            })
 
-alert("Account created!")
+            alert("Account created!")
 
-location.href="LogIn.html"
+            location.href = "LogIn.html"
 
-}
+        }
 
-</script>
+    </script>
 
 </body>
+
 </html>
