@@ -38,7 +38,7 @@ username:user
 let data = await response.json()
 
 if(data.exists){
-document.getElementById("msg").innerText="Username už je použité!"
+prompt("Username already exists. Please choose another one.")
 return
 }
 
