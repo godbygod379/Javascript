@@ -14,36 +14,18 @@
 <button onclick="signup()">Create Account</button>
 <br><br>
 
-<p id="msg" style="color:red;"></p>
-
 <button onclick="location.href='LogIn.html'">Back to Login</button>
 
 <script>
 
 const url="https://script.google.com/macros/s/AKfycbyLXeotP8PkWIJ9RjTr_C5ocmLxTTTNHt4ycIfZOrBgHKKmTzCPNtR6tqTURBpC6RE9ow/exec"
 
-async function signup(){
+function signup(){
 
 let user=document.getElementById("user").value
 let pass=document.getElementById("pass").value
 
-let response = await fetch(url,{
-method:"POST",
-body:JSON.stringify({
-action:"checkUser",
-username:user
-})
-})
-
-let data = await response.json()
-
-if(data.exists){
-alert("Username already exists. Please choose another one.")
-return
-}
-
-// ak neexistuje, vytvor účet
-await fetch(url,{
+fetch(url,{
 method:"POST",
 body:JSON.stringify({
 action:"signup",
@@ -53,6 +35,7 @@ password:pass
 })
 
 alert("Account created!")
+
 location.href="LogIn.html"
 
 }
