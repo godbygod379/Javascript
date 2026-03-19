@@ -19,48 +19,49 @@
 
     <script>
 
-        const url = "https://script.google.com/macros/s/AKfycbyLXeotP8PkWIJ9RjTr_C5ocmLxTTTNHt4ycIfZOrBgHKKmTzCPNtR6tqTURBpC6RE9ow/exec"
+    const url = "https://script.google.com/macros/s/AKfycbyLXeotP8PkWIJ9RjTr_C5ocmLxTTTNHt4ycIfZOrBgHKKmTzCPNtR6tqTURBpC6RE9ow/exec"
 
-        async function signup() {
+    async function signup() {
 
-            let user = document.getElementById("user").value
-            let pass = document.getElementById("pass").value
+        let user = document.getElementById("user").value
+        let pass = document.getElementById("pass").value
 
-            try {
-                // TRY checking username
-                const checkResponse = await fetch(url, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        action: "checkUser",
-                        username: user
-                    })
-                })
-
-                const checkData = await checkResponse.json()
-
-                if (checkData.exists === true) {
-                    alert("❌ Username already in use!")
-                    return
-                }
-
-            } catch (err) {
-                console.log("Check failed, continuing signup...")
-            }
-
-            // CREATE ACCOUNT
-            await fetch(url, {
-                method: "POST",
-                body: JSON.stringify({
-                    action: "signup",
-                    username: user,
-                    password: pass
-                })
+    // check username
+        const check = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify({
+                action: "checkUser",
+                username: user
             })
+        })
 
-            alert("✅ Account created!")
-            location.href = "LogIn.html"
+        const checkData = await check.json()
 
+        if (checkData.exists) {
+            alert("❌ Username already in use!")
+            return
         }
+
+    // create account
+         const res = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify({
+                action: "signup",
+                username: user,
+                password: pass
+            })
+        })
+
+        const result = await res.json()
+
+        if (!result.success) {
+            alert("❌ Username already exists (server check)")
+            return
+        }
+
+        alert("✅ Account created!")
+       location.href = "LogIn.html"
+    }
 
     </script>
 
