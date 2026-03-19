@@ -53,12 +53,15 @@
         const result = await res.json()
 
         if (!result.success) {
-            alert("❌ Username alreadjky exists (server check)")
+            alert("❌ Failed to create account!")
+
             return
         }
 
-        alert("✅ Account created!")
-       location.href = "LogIn.html"
+        alert("Account created!")
+setTimeout(() => {
+    location.href = "LogIn.html"
+}, 5000)
     }
 
     </script>
