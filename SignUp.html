@@ -26,7 +26,6 @@
         let user = document.getElementById("user").value
         let pass = document.getElementById("pass").value
 
-    // check username
         const check = await fetch(url, {
             method: "POST",
             body: JSON.stringify({
@@ -42,7 +41,6 @@
             return
         }
 
-    // create account
          const res = await fetch(url, {
             method: "POST",
             body: JSON.stringify({
@@ -55,7 +53,7 @@
         const result = await res.json()
 
         if (!result.success) {
-            alert("❌ Username already exists (server check)")
+            alert("❌ Username alreadjky exists (server check)")
             return
         }
 
