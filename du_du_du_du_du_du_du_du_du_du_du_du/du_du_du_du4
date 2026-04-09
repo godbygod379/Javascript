@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Tulák - DU04 </title>
+</head>
+<body>
+
+    <div id="vystup"></div>
+
+    <script>
+
+        var smery = ["SEVER", "JUH", "VÝCHOD", "ZÁPAD"];
+        var nahodnyIndex = Math.floor(Math.random() * 4);
+        var vybranySmer = smery[nahodnyIndex];
+
+
+        var vzdialenost = Math.floor(Math.random() * (9900 - 100 + 1)) + 100;
+
+
+        document.getElementById("vystup").innerHTML = 
+            "Vyber sa na " + vybranySmer + " a prejdi " + vzdialenost + " metrov.";
+    </script>
+
+</body>
+</html>
